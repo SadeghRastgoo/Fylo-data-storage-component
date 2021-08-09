@@ -1,0 +1,233 @@
+/* My Notes =>  400 700*/
+
+:root {
+  // Colors
+  --color-white: #ddd;
+  --color-black: #000;
+  --color-dark-blue: hsl(228, 56%, 26%);
+  --color-very-dark-blue: hsl(229, 57%, 11%);
+  --color-gray: hsl(229, 7%, 55%);
+
+  // Paddings
+  --padding-container: 4rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 1rem => 10px */
+}
+body {
+  font-size: 16px;
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding: 6rem 0;
+  background-color: #16182f;
+  background: url(../images/bg-mobile.png) no-repeat center;
+  background-size: cover;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1175px;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-dark-blue);
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+}
+
+// container a
+.container-a {
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+  padding: var(--padding-container);
+  gap: 3.25rem;
+  border-top-right-radius: 125px;
+}
+.logo {
+  width: 200px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.icons {
+  width: 100%;
+  display: flex;
+  gap: 1.8rem;
+}
+.box {
+  background-color: var(--color-very-dark-blue);
+  padding: 24px;
+  border-radius: 8px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  color: #6f7ad5;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #020820;
+  }
+}
+
+.container-b {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+  padding: var(--padding-container);
+  color: var(--color-white);
+}
+
+.used-storage {
+  text-align: center;
+  font-size: 1.7rem;
+
+  & > span {
+    font-weight: bold;
+  }
+}
+
+.gb {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.percentage {
+  width: 100%;
+  height: 20px;
+  border-radius: 25px;
+  background-color: #1f234b;
+  overflow: hidden;
+  padding: 3px;
+
+  &__used {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    border-radius: 25px;
+    background: linear-gradient(to right, #f89f97, #f34995);
+    padding: 2px;
+
+    &::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: var(--color-white);
+      position: absolute;
+      border-radius: 50%;
+      right: 3px;
+      top: 2px;
+      bottom: 2px;
+    }
+  }
+}
+
+.left-gb {
+  width: 175px;
+  height: 60px;
+  background-color: #fff;
+  padding: 2.75rem 2rem;
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+
+  .number {
+    color: #000;
+    font-size: 3.75rem;
+    font-weight: bold;
+  }
+  .not-number {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 1000px) {
+  body {
+    background: #16182f url(../images/bg-desktop.png) no-repeat bottom;
+    background-size: contain;
+  }
+  .wrapper {
+    margin: 0;
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+  .container-b {
+    margin: 0;
+  }
+  .container-a {
+    max-width: 425px;
+    margin: 0;
+  }
+
+  // Left GB
+
+  .used-storage {
+    text-align: left;
+  }
+
+  .left-gb {
+    top: -37.5px;
+    left: initial;
+    right: var(--padding-container);
+    transform: initial;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 87%;
+      width: 0;
+      height: 0;
+      border-left: 30px solid transparent;
+      border-right: 0 solid transparent;
+      border-top: 30px solid #fff;
+    }
+  }
+}
